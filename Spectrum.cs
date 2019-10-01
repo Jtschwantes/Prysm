@@ -22,7 +22,7 @@ namespace Spectrum
             SetConsoleMode( handle, mode | 0x4 );
         }
 
-        // TODO: Grab user's 
+        // TODO: Grab user's defaults
         public static void Reset()
         {
             Console.ForegroundColor = ConsoleColor.White;
@@ -32,9 +32,9 @@ namespace Spectrum
         // Writers
         public static void WriteLine(string str, string fore = "", string back = "")
         {
-            Console.WriteLine(fore.Remove(0, 1));
-            Console.WriteLine(fore.Replace(" ", "38") + back.Replace(" ", "48") + str);
+            Console.Write(fore.Replace(" ", "38") + back.Replace(" ", "48") + str);
             Spec.Reset();
+            Console.WriteLine();
         }
 
         public static void GradientLine(string str, string frontBeginning, string frontEnd, string backBeginning = "", string backEnd = "")
@@ -51,18 +51,14 @@ namespace Spectrum
             dr = dr / str.Length;
             dg = dg / str.Length;
             db = db / str.Length;
-
-            //Console.WriteLine(dr.ToString() + " " + dg.ToString() + " " + db.ToString());
-            
             
             for(int i = 0; i < str.Length; i++)
             {
                 string s = FormatToForeground(RGB(Convert.ToInt32(dbl[0]), Convert.ToInt32(dbl[1]), Convert.ToInt32(dbl[2])));
                 Console.Write(s + str[i]);
                 dbl[0] += dr;
-                dbl[1] += dr;
-                dbl[2] += dr;
-                //Console.WriteLine(dbl[0] + " " + dbl[1] + " " + dbl[2]);
+                dbl[1] += dg;
+                dbl[2] += db;
             }
         }
         
