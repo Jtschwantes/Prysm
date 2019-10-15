@@ -37,7 +37,10 @@ namespace Spectrum
         // TODO: Grab user's defaults
         public static void Reset()
         {
-            Console.Write(defaultFore + defaultBack);
+            currentFore = defaultFore;
+            currentBack = defaultBack;
+            Console.Write(defaultFore);
+            Console.Write(defaultBack);
         }
 
         private static void SoftReset()
@@ -53,7 +56,7 @@ namespace Spectrum
             Console.WriteLine();
         }
 
-        public static void GradientLine(string str, string frontBeginning, string frontEnd, string backBeginning = "", string backEnd = "")
+        public static void Gradient(string str, string frontBeginning, string frontEnd, string backBeginning = "", string backEnd = "")
         {
             var RGB1 = FormatToRGB(frontBeginning);
             var RGB2 = FormatToRGB(frontEnd);
@@ -76,6 +79,8 @@ namespace Spectrum
                 dbl[1] += dg;
                 dbl[2] += db;
             }
+
+            SoftReset();
 
             Console.WriteLine();
         }

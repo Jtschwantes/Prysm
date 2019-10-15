@@ -14,40 +14,53 @@ namespace Spectrum
             var color1 = RGB(100, 255, 200);
             var color2 = HEX("#cc60cc");
             var myColor2 = RGB(10, 25, 100);
-            Spec.WriteLine("You can save and use your own colors per line", color1, HEX("#cc60cc"));
-            Spec.WriteLine("Blah Joe", Red);
+            WriteLine("You can save and use your own colors per line", color1, HEX("#cc60cc"));
+            WriteLine("Blah Joe", Red);
             
             Style(RGB(155, 255), HEX("222222"));
             Console.WriteLine("This will always print your desired colors");
             Console.WriteLine("Even when you use Console.WriteLine!");
-            Spec.Reset();
+            Reset();
             
-            Spec.GradientLine("You can even use gradients in your text", HEX("ff0000"), HEX("00ffff"));
+            Gradient("You can even use gradients in your text", HEX("ff0000"), HEX("00ffff"));
         
             Console.WriteLine();
-            Spec.Reset();
+            Reset();
 
-            Spec.GradientLine("This is a Pass/Warn/Fail example", Colors.Magenta, Colors.Red);
-            Spec.Pass("Pass message");
-            Spec.Warn("Warn message");
-            Spec.Error("Error message");
+            Gradient("This is a Pass/Warn/Fail example", Colors.Magenta, Colors.Red);
+            Pass("Pass message");
+            Warn("Warn message");
+            Error("Error message");
             Console.WriteLine("Normal Message (Console)");
-            Spec.Reset();
+            Reset();
 
             Console.WriteLine();
-            Spec.Style(Colors.DarkMagenta, Colors.Grey);
+            Style(Colors.DarkMagenta, Colors.Grey);
             Console.WriteLine("Console before Reset");
             Console.WriteLine("Console before Reset");
-            Spec.Write("Spec before Reset", Colors.Green, Colors.Grey);
-            Spec.Reset();
+            Write("Spec before Reset", Colors.Green, Colors.Grey);
+            Reset();
             Console.WriteLine();
             Console.WriteLine("Console after Reset");
             Console.WriteLine();
 
             string r = Paint("Red", Colors.Red);
-            string g = Paint("Green", Colors.Red);
-            string b = Paint("Cyan", Colors.Red);
-            Console.WriteLine($"{r}{g}{b}");
+            string g = Paint("Green", Colors.Green);
+            string b = Paint("Cyan", Colors.Cyan);
+            Console.WriteLine($"{r}, {g}, {b}...");
+            // Or, in one line:
+            Console.WriteLine($"{Paint("Red", Red)}, {Paint("Green", Green)}, {Paint("Cyan", Cyan)}...");
+            Reset();
+
+            Style(Black, White);
+            Console.Write("Before Reset");
+            Reset();
+            Console.WriteLine("\nAfter Reset");
+
+            Gradient("This string will print from magenta to red", Magenta, Red);
+            Gradient("This string will print from cyan to green", Cyan, Green);
+            Gradient("This string will print from yellow to orange", Yellow, RGB(255, 100, 0));
+            Gradient("This string will print from white to black", White, Black);
         }
     }
 }
