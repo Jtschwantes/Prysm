@@ -49,7 +49,7 @@ namespace Spectrum
         public static void WriteLine(string str, string fore = "", string back = "")
         {
             Console.Write(fore.Replace(" ", "38") + back.Replace(" ", "48") + str);
-            Spec.Reset();
+            Spec.SoftReset();
             Console.WriteLine();
         }
 
@@ -83,13 +83,18 @@ namespace Spectrum
         public static void Write(string str, string fore = "", string back = "")
         {
             Console.Write(fore.Replace(" ", "38") + back.Replace(" ", "48") + str);
-            Spec.Reset();
+            Spec.SoftReset();
+        }
+
+        public static string Paint(string str, string fore = "", string back = "")
+        {
+            return FormatToForeground(fore) + FormatToBackground(back) + str + currentFore + currentBack;
         }
 
         // Status Writes
-        public static void Error(string str) { WriteLine(str, Colors.Red); Spec.Reset();}
-        public static void Warn(string str) { WriteLine(str, Colors.Yellow); Spec.Reset();}
-        public static void Pass(string str) { WriteLine(str, Colors.Green); Spec.Reset();}
+        public static void Error(string str) { WriteLine(str, Colors.Red); Spec.SoftReset();}
+        public static void Warn(string str) { WriteLine(str, Colors.Yellow); Spec.SoftReset();}
+        public static void Pass(string str) { WriteLine(str, Colors.Green); Spec.SoftReset();}
         
         // Color Getters (Public)
         public static string RGB(int r = 0, int g = 0, int b = 0)
@@ -106,9 +111,11 @@ namespace Spectrum
             return "\x1b[ ;2;" + r + ";" + g + ";" + b + "m";
         }
 
-        public static void Style(string fore = "", string back = "")
+        public static void Style(string fore = null, string back = null)
         {
-            Console.Write(FormatToForeground(fore) + FormatToBackground(back));
+            if(fore != null) currentFore = FormatToForeground(fore);
+            if(back != null) currentBack = FormatToBackground(back);
+            SoftReset();
         }
 
         // Formatters (Private)
