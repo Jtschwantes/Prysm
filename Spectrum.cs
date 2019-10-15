@@ -20,13 +20,29 @@ namespace Spectrum
             int mode;
             GetConsoleMode( handle, out mode );
             SetConsoleMode( handle, mode | 0x4 );
+
+            // TODO: Don't assume that they're using black and white
+            defaultFore = "\x1b[38;2;255;255;255m";
+            defaultBack = "\x1b[48;2;0;0;0m";
+            currentFore = defaultFore;
+            currentBack = defaultBack;
         }
+
+        // Static variables
+        private static string defaultFore {get;set;}
+        private static string defaultBack {get;set;}
+        private static string currentFore {get;set;}
+        private static string currentBack {get;set;}
 
         // TODO: Grab user's defaults
         public static void Reset()
         {
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.BackgroundColor = ConsoleColor.Black;
+            Console.Write(defaultFore + defaultBack);
+        }
+
+        private static void SoftReset()
+        {
+            Console.Write(currentFore + currentBack);
         }
 
         // Writers
@@ -60,14 +76,21 @@ namespace Spectrum
                 dbl[1] += dg;
                 dbl[2] += db;
             }
+
+            Console.WriteLine();
         }
         
         public static void Write(string str, string fore = "", string back = "")
         {
-            Console.Write(fore.Replace(" ", "38") + back.Replace(" ", "38") + str);
+            Console.Write(fore.Replace(" ", "38") + back.Replace(" ", "48") + str);
             Spec.Reset();
         }
 
+        // Status Writes
+        public static void Error(string str) { WriteLine(str, Colors.Red); Spec.Reset();}
+        public static void Warn(string str) { WriteLine(str, Colors.Yellow); Spec.Reset();}
+        public static void Pass(string str) { WriteLine(str, Colors.Green); Spec.Reset();}
+        
         // Color Getters (Public)
         public static string RGB(int r = 0, int g = 0, int b = 0)
         {
