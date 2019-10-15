@@ -1,4 +1,4 @@
-# <span style="color: red">S</span><span style="color: #ffff00">p</span><span style="color: #ff8800">e</span><span style="color: #00ff00">c</span><span style="color: #00ffff">t</span><span style="color: #0000ff">r</span><span style="color: #990099">u</span><span style="color: #ff00ff">m</span>
+# <span style="color: red">S</span><span style="color: #ff8800">p</span><span style="color: #ffff00">e</span><span style="color: #00ff00">c</span><span style="color: #00ffff">t</span><span style="color: #0000ff">r</span><span style="color: #990099">u</span><span style="color: #ff00ff">m</span>
 
 Spectrum is a CLI beutification tool that provides simple and easy manipulation of console colors.
 This tool formats escape characters, which provides 256 color support to most windows command lines.
