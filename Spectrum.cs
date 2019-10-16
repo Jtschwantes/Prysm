@@ -20,24 +20,43 @@ namespace Spectrum
             int mode;
             GetConsoleMode( handle, out mode );
             SetConsoleMode( handle, mode | 0x4 );
+
+            // TODO: Don't assume that they're using black and white
+            defaultFore = "\x1b[38;2;255;255;255m";
+            defaultBack = "\x1b[48;2;0;0;0m";
+            currentFore = defaultFore;
+            currentBack = defaultBack;
         }
 
-        // TODO: Grab user's 
+        // Static variables
+        private static string defaultFore {get;set;}
+        private static string defaultBack {get;set;}
+        private static string currentFore {get;set;}
+        private static string currentBack {get;set;}
+
+        // TODO: Grab user's defaults
         public static void Reset()
         {
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.BackgroundColor = ConsoleColor.Black;
+            currentFore = defaultFore;
+            currentBack = defaultBack;
+            Console.Write(defaultFore);
+            Console.Write(defaultBack);
+        }
+
+        private static void SoftReset()
+        {
+            Console.Write(currentFore + currentBack);
         }
 
         // Writers
         public static void WriteLine(string str, string fore = "", string back = "")
         {
-            Console.WriteLine(fore.Remove(0, 1));
-            Console.WriteLine(fore.Replace(" ", "38") + back.Replace(" ", "48") + str);
-            Spec.Reset();
+            Console.Write(fore.Replace(" ", "38") + back.Replace(" ", "48") + str);
+            Spec.SoftReset();
+            Console.WriteLine();
         }
 
-        public static void GradientLine(string str, string frontBeginning, string frontEnd, string backBeginning = "", string backEnd = "")
+        public static void Gradient(string str, string frontBeginning, string frontEnd, string backBeginning = "", string backEnd = "")
         {
             var RGB1 = FormatToRGB(frontBeginning);
             var RGB2 = FormatToRGB(frontEnd);
@@ -51,27 +70,37 @@ namespace Spectrum
             dr = dr / str.Length;
             dg = dg / str.Length;
             db = db / str.Length;
-
-            //Console.WriteLine(dr.ToString() + " " + dg.ToString() + " " + db.ToString());
-            
             
             for(int i = 0; i < str.Length; i++)
             {
                 string s = FormatToForeground(RGB(Convert.ToInt32(dbl[0]), Convert.ToInt32(dbl[1]), Convert.ToInt32(dbl[2])));
                 Console.Write(s + str[i]);
                 dbl[0] += dr;
-                dbl[1] += dr;
-                dbl[2] += dr;
-                //Console.WriteLine(dbl[0] + " " + dbl[1] + " " + dbl[2]);
+                dbl[1] += dg;
+                dbl[2] += db;
             }
+
+            SoftReset();
+
+            Console.WriteLine();
         }
         
         public static void Write(string str, string fore = "", string back = "")
         {
-            Console.Write(fore.Replace(" ", "38") + back.Replace(" ", "38") + str);
-            Spec.Reset();
+            Console.Write(fore.Replace(" ", "38") + back.Replace(" ", "48") + str);
+            Spec.SoftReset();
         }
 
+        public static string Paint(string str, string fore = "", string back = "")
+        {
+            return FormatToForeground(fore) + FormatToBackground(back) + str + currentFore + currentBack;
+        }
+
+        // Status Writes
+        public static void Error(string str) { WriteLine(str, Colors.Red); Spec.SoftReset();}
+        public static void Warn(string str) { WriteLine(str, Colors.Yellow); Spec.SoftReset();}
+        public static void Pass(string str) { WriteLine(str, Colors.Green); Spec.SoftReset();}
+        
         // Color Getters (Public)
         public static string RGB(int r = 0, int g = 0, int b = 0)
         {
@@ -87,9 +116,11 @@ namespace Spectrum
             return "\x1b[ ;2;" + r + ";" + g + ";" + b + "m";
         }
 
-        public static void Style(string fore = "", string back = "")
+        public static void Style(string fore = null, string back = null)
         {
-            Console.Write(FormatToForeground(fore) + FormatToBackground(back));
+            if(fore != null) currentFore = FormatToForeground(fore);
+            if(back != null) currentBack = FormatToBackground(back);
+            SoftReset();
         }
 
         // Formatters (Private)

@@ -9,38 +9,58 @@ namespace Spectrum
         static void Main( string[] args )
         {
             Spec.Initialize();
-            
+            Console.WriteLine();
+
             var color1 = RGB(100, 255, 200);
-            //var color2 = HEX("#555555");
-            Spec.WriteLine("It's lit", Blue);
-            Style(RGB(255), HEX("#111111"));
-            Console.WriteLine("It's not lit");
-            Spec.GradientLine("It's Gradient!", HEX("ffffff"), HEX("000000"));
-            Spec.WriteLine("Test", RGB(255, 0 , 0));
-            Spec.WriteLine("Test", RGB(255, 0 , 55));
-            Spec.WriteLine("Test", RGB(255, 0 , 100));
-            Spec.WriteLine("Test", RGB(255, 0 , 155));
-            Spec.WriteLine("Test", RGB(255, 0 , 200));
-            Spec.WriteLine("Test", RGB(255, 0 , 255));
-            Spec.WriteLine("Test", RGB(200, 0 , 255));
-            Spec.WriteLine("Test", RGB(155, 0 , 255));
-            Spec.WriteLine("Test", RGB(100, 0 , 255));
-            Spec.WriteLine("Test", RGB(55, 0 , 255));
-            Spec.WriteLine("Test", RGB(0, 0 , 255));
+            var color2 = HEX("#cc60cc");
+            var myColor2 = RGB(10, 25, 100);
+            WriteLine("You can save and use your own colors per line", color1, HEX("#cc60cc"));
+            WriteLine("Blah Joe", Red);
+            
+            Style(RGB(155, 255), HEX("222222"));
+            Console.WriteLine("This will always print your desired colors");
+            Console.WriteLine("Even when you use Console.WriteLine!");
+            Reset();
+            
+            Gradient("You can even use gradients in your text", HEX("ff0000"), HEX("00ffff"));
+        
+            Console.WriteLine();
+            Reset();
 
-            Spec.WriteLine("Test", HEX("00ff00"));
-            Spec.WriteLine("Test", HEX("00ee00"));
-            Spec.WriteLine("Test", HEX("00dd00"));
-            Spec.WriteLine("Test", HEX("00cc00"));
-            Spec.WriteLine("Test", HEX("00aa00"));
-            Spec.WriteLine("Test", HEX("009900"));
-            Spec.WriteLine("Test", HEX("007700"));
-            Spec.WriteLine("Test", HEX("006600"));
-            Spec.WriteLine("Test", HEX("005500"));
-            Spec.WriteLine("Test", HEX("003300"));
-            Spec.WriteLine("Test", HEX("001100"));
+            Gradient("This is a Pass/Warn/Fail example", Colors.Magenta, Colors.Red);
+            Pass("Pass message");
+            Warn("Warn message");
+            Error("Error message");
+            Console.WriteLine("Normal Message (Console)");
+            Reset();
 
-            Spec.Reset();
+            Console.WriteLine();
+            Style(Colors.DarkMagenta, Colors.Grey);
+            Console.WriteLine("Console before Reset");
+            Console.WriteLine("Console before Reset");
+            Write("Spec before Reset", Colors.Green, Colors.Grey);
+            Reset();
+            Console.WriteLine();
+            Console.WriteLine("Console after Reset");
+            Console.WriteLine();
+
+            string r = Paint("Red", Colors.Red);
+            string g = Paint("Green", Colors.Green);
+            string b = Paint("Cyan", Colors.Cyan);
+            Console.WriteLine($"{r}, {g}, {b}...");
+            // Or, in one line:
+            Console.WriteLine($"{Paint("Red", Red)}, {Paint("Green", Green)}, {Paint("Cyan", Cyan)}...");
+            Reset();
+
+            Style(Black, White);
+            Console.Write("Before Reset");
+            Reset();
+            Console.WriteLine("\nAfter Reset");
+
+            Gradient("This string will print from magenta to red", Magenta, Red);
+            Gradient("This string will print from cyan to green", Cyan, Green);
+            Gradient("This string will print from yellow to orange", Yellow, RGB(255, 100, 0));
+            Gradient("This string will print from white to black", White, Black);
         }
     }
 }
