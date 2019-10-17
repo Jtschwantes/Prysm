@@ -114,7 +114,7 @@ Output:
 
 #### Gradients
 
-The `Gradient()` method behaves just like `Write()`, except the colors gradually shade between two colors. Therefore, it accepts five parameters. The first is the string to be written, the second and third are the foreground colors to gradient, and the fourth and fifth are the background colors to gradient. Example:
+The `Gradient()` method behaves just like `Write()`, except the colors gradually shade between two colors. <!--Therefore, it accepts five parameters. The first is the string to be written, the second and third are the foreground colors to gradient, and the fourth and fifth are the background colors to gradient.-->The first parameter is the string to be written, the second and third are the foreground colors in the gradient. Example:
 ```C#
 Gradient("This string will print from magenta to red", Magenta, Red);
 Gradient("This string will print from cyan to green", Cyan, Green);
