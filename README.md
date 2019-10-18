@@ -5,7 +5,7 @@ This tool formats escape characters, which provides 256 color support to most wi
 
 ## <span style="color: red">Initialization</span>
 
-First, download the package. (The package is in a "closed beta" state)
+First, download the package. (The package is in a beta state, feel free to clone and play around with it!)
 
 When you have the package, add the following using statement to permit access to the methods:
 ```C#
