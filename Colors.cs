@@ -114,6 +114,8 @@ namespace Spectrum
         public const string NavajoWhite = "\x1b[ ;2;255;222;173m";
         public const string Navy = "\x1b[ ;2;0;0;128m";
         public const string OldLace = "\x1b[ ;2;253;245;230m";
+        public const string OldGloryBLue = "\x1b[ ;2;0;33;71m";
+        public const string OldGloryRed = "\x1b[ ;2;187;19;62m";
         public const string Olive = "\x1b[ ;2;128;128;0m";
         public const string OliveDrab = "\x1b[ ;2;107;142;35m";
         public const string Orange = "\x1b[ ;2;255;165;0m";
