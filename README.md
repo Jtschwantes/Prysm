@@ -114,7 +114,7 @@ Output:
 
 #### Gradients
 
-The `Gradient()` method behaves just like `Write()`, except the colors gradually shade between two colors. Therefore, it accepts five parameters. The first is the string to be written, the second and third are the foreground colors to gradient, and the fourth and fifth are the background colors to gradient. Example:
+The `Gradient()` method behaves just like `Write()`, except the colors gradually shade between two colors. <!--Therefore, it accepts five parameters. The first is the string to be written, the second and third are the foreground colors to gradient, and the fourth and fifth are the background colors to gradient.-->The first parameter is the string to be written, the second and third are the foreground colors in the gradient. Example:
 ```C#
 Gradient("This string will print from magenta to red", Magenta, Red);
 Gradient("This string will print from cyan to green", Cyan, Green);
@@ -125,3 +125,19 @@ Gradient("This string will print from white to black", White, Black);
 Outputs:
 
 ![Example with Paint](/images/GExample.png)
+
+#### Alternating Colors
+
+The `AlternatingCharacters()` function provides a way to alternate characters. It will print the first string parameter, and it will rotate through a `IEnumerable` (second parameter) of colors after every `int n` character, where `n` is the third parameter passed into the function. It will not consider spaces as characters. Example:
+
+```C#
+using static ColorSets;
+// ...
+var colors = new List<string>(){Red, Magenta};
+AlternateCharacters("This sentance will print as a rainbow!", Rainbow, 3);
+AlternateCharacters("This sentance will switch between red and purple", colors, 2);
+```
+
+Output:
+
+![Example with AlternatingCharacters](/images/ACExample.png)
