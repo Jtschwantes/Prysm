@@ -1,5 +1,6 @@
 using System;
 using System.Runtime.InteropServices;
+using System.Collections;
 
 namespace Spectrum
 {
@@ -93,6 +94,33 @@ namespace Spectrum
             }
 
             // Make sure that the colors don't stick, add the new line char
+            SoftReset();
+            Console.WriteLine();
+        }
+
+        public static void AlternateCharacters(string str, IEnumerable colors, int alternatingConcurrency = 1)
+        {
+            var max = alternatingConcurrency;
+            var counter = 0;
+
+            var enumerator = colors.GetEnumerator();
+            enumerator.Reset();
+            if(!enumerator.MoveNext()) return;
+            foreach(var chr in str)
+            {
+                Write(Convert.ToString(chr), FormatToForeground((string)enumerator.Current));
+                if(chr != ' ') counter++;
+                if(counter == max)
+                {
+                    counter = 0;
+                    if(!enumerator.MoveNext())
+                    {
+                        enumerator.Reset();
+                        enumerator.MoveNext();
+                    }
+                }
+            }
+
             SoftReset();
             Console.WriteLine();
         }
