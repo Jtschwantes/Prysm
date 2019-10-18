@@ -13,6 +13,7 @@ namespace Spectrum
         public const string Magenta = "\x1b[ ;2;255;0;255m";
         public const string Cyan = "\x1b[ ;2;0;255;255m";
         public const string AliceBlue = "\x1b[ ;2;240;248;255m";
+        public const string AlgaeGreen = "\x1b[ ;2;142;228;175m";
         public const string AntiqueWhite = "\x1b[ ;2;250;235;215m";
         public const string Aqua = "\x1b[ ;2;0;255;255m";
         public const string Aquamarine = "\x1b[ ;2;127;255;212m";
@@ -54,6 +55,7 @@ namespace Spectrum
         public const string DimGray = "\x1b[ ;2;105;105;105m";
         public const string DimGrey = "\x1b[ ;2;105;105;105m";
         public const string DodgerBlue = "\x1b[ ;2;30;144;255m";
+        public const string EmeraldGreen = "\x1b[ ;2;55;150;131m";
         public const string FireBrick = "\x1b[ ;2;178;34;34m";
         public const string FloralWhite = "\x1b[ ;2;255;250;240m";
         public const string ForestGreen = "\x1b[ ;2;34;139;34m";
@@ -67,6 +69,7 @@ namespace Spectrum
         public const string GreenYellow = "\x1b[ ;2;173;255;47m";
         public const string HoneyDew = "\x1b[ ;2;240;255;240m";
         public const string HotPink = "\x1b[ ;2;255;105;180m";
+        public const string ImperialBlue = "\x1b[ ;2;5;56;107m";
         public const string IndianRed = "\x1b[ ;2;205;92;92m";
         public const string Indigo = "\x1b[ ;2;75;0;130m";
         public const string Ivory = "\x1b[ ;2;255;255;240m";
@@ -107,6 +110,7 @@ namespace Spectrum
         public const string MintCream = "\x1b[ ;2;245;255;250m";
         public const string MistyRose = "\x1b[ ;2;255;228;225m";
         public const string Moccasin = "\x1b[ ;2;255;228;181m";
+        public const string MeadowGreen = "\x1b[ ;2;20;167;108m";
         public const string NavajoWhite = "\x1b[ ;2;255;222;173m";
         public const string Navy = "\x1b[ ;2;0;0;128m";
         public const string OldLace = "\x1b[ ;2;253;245;230m";
@@ -115,11 +119,13 @@ namespace Spectrum
         public const string Orange = "\x1b[ ;2;255;165;0m";
         public const string OrangeRed = "\x1b[ ;2;255;69;0m";
         public const string Orchid = "\x1b[ ;2;218;112;214m";
+        public const string OutrageousOrange = "\x1b[ ;2;255;101;47m";
         public const string PaleGoldenRod = "\x1b[ ;2;238;232;170m";
         public const string PaleGreen = "\x1b[ ;2;152;251;152m";
         public const string PaleTurquoise = "\x1b[ ;2;175;238;238m";
         public const string PaleVioletRed = "\x1b[ ;2;219;112;147m";
         public const string PapayaWhip = "\x1b[ ;2;255;239;213m";
+        public const string PastelGreen = "\x1b[ ;2;92;219;149m";
         public const string PeachPuff = "\x1b[ ;2;255;218;185m";
         public const string Peru = "\x1b[ ;2;205;133;63m";
         public const string Pink = "\x1b[ ;2;255;192;203m";
@@ -147,6 +153,7 @@ namespace Spectrum
         public const string Teal = "\x1b[ ;2;0;128;128m";
         public const string Thistle = "\x1b[ ;2;216;191;216m";
         public const string Tomato = "\x1b[ ;2;255;99;71m";
+        public const string TurboYellow = "\x1b[ ;2;255;228;0m";
         public const string Turquoise = "\x1b[ ;2;64;224;208m";
         public const string Violet = "\x1b[ ;2;238;130;238m";
         public const string Wheat = "\x1b[ ;2;245;222;179m";
