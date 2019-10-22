@@ -5,7 +5,10 @@ This tool formats escape characters, which provides 256 color support to most wi
 
 ## Initialization
 
-First, download the package. (The package is in a beta state, feel free to clone and play around with it!)
+First, download the package using the following command:
+```
+dotnet add package Prysm --version 0.0.1
+```
 
 When you have the package, add the following using statement to permit access to the methods:
 ```C#
