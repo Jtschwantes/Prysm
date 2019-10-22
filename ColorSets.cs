@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using static Spectrum.Colors;
 
 namespace Spectrum

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Runtime.InteropServices;
 using System.Collections;
 
@@ -176,7 +176,7 @@ namespace Spectrum
         // Formats the the escape string into RGB colors, returns an array (used by gradient)
         private static int[] FormatToRGB(string str)
         {
-            var strs = str.Split(";");
+            var strs = str.Split(';');
             return new int[] {int.Parse(strs[2]), int.Parse(strs[3]), int.Parse(strs[4].Remove(strs[4].Length - 1))};
         }
     }
