@@ -1,6 +1,6 @@
-using static Spectrum.Colors;
+using static Prysm.Colors;
 
-namespace Spectrum
+namespace Prysm
 {
     public class ColorSets
     {
