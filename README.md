@@ -26,7 +26,7 @@ You may specify default forground and background colors as the first and second 
 Prysm will use those defaults as values anytime `Pym.Reset()` is called. 
 The default forground and background colors are white and black.
 ```C#
-Spec.Initialize();
+Pym.Initialize();
 ```
 
 ## Usage
