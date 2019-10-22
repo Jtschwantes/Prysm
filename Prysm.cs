@@ -2,9 +2,9 @@
 using System.Runtime.InteropServices;
 using System.Collections;
 
-namespace Spectrum
+namespace Prysm
 {
-    public static class Spec
+    public static class Pym
     {
         // DLL imports - allows the console to change mode to allow the escape color characters
         [DllImport( "kernel32.dll", SetLastError = true )]
@@ -57,7 +57,7 @@ namespace Spectrum
         public static void WriteLine(string str, string fore = "", string back = "")
         {
             Console.Write(fore.Replace(" ", "38") + back.Replace(" ", "48") + str);
-            Spec.SoftReset();
+            Pym.SoftReset();
             Console.WriteLine();
         }
 
@@ -139,9 +139,9 @@ namespace Spectrum
         }
 
         // Status Writes
-        public static void Error(string str) { WriteLine(str, Colors.Red); Spec.SoftReset();} // Writes in Red
-        public static void Warn(string str) { WriteLine(str, Colors.Yellow); Spec.SoftReset();} // Writes in Yellow
-        public static void Pass(string str) { WriteLine(str, Colors.Green); Spec.SoftReset();} // Writes in Green
+        public static void Error(string str) { WriteLine(str, Colors.Red); Pym.SoftReset();} // Writes in Red
+        public static void Warn(string str) { WriteLine(str, Colors.Yellow); Pym.SoftReset();} // Writes in Yellow
+        public static void Pass(string str) { WriteLine(str, Colors.Green); Pym.SoftReset();} // Writes in Green
         
         // Color Getters (Public)
         // Takes red, green, and blue as integers

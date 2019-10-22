@@ -1,5 +1,5 @@
 
-namespace Spectrum
+namespace Prysm
 {    
     // Default Colors
     public static class Colors
