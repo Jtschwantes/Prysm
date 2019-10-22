@@ -1,6 +1,6 @@
 # Prysm
 
-Prysm is a CLI beutification tool that provides simple and easy manipulation of console colors.
+Prysm is a CLI beautification tool that provides simple and easy manipulation of console colors.
 This tool formats escape characters, which provides 256 color support to most windows command lines.
 
 **Prysm is in beta, there are known bugs. Use at your own risk!**
