@@ -1,13 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageId>Prysm</PackageId>
-    <Version>0.0.1</Version>
-    <title>Prysm</title>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Authors>Jake Schwantes</Authors>
-    <Description>Prysm is a CLI beutification tool that provides simple and easy manipulation of console colors. This tool formats escape characters, which provides 256 color support to most windows command lines.</Description>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
 
 </Project>
