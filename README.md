@@ -5,6 +5,8 @@ This tool formats escape characters, which provides 256 color support to most wi
 
 **Prysm is in beta, there are known bugs. Use at your own risk!**
 
+Version 0.0.2 Changes - Fixed a bug that changed default color values to a white foreground and a black background.
+
 ## Initialization
 
 First, download the package using the following command:
