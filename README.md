@@ -9,7 +9,7 @@ This tool formats escape characters, which provides 256 color support to most wi
 
 First, download the package using the following command:
 ```
-dotnet add package Prysm --version 0.0.1
+dotnet add package Prysm --version 0.0.2
 ```
 
 When you have the package, add the following using statement to permit access to the methods:
