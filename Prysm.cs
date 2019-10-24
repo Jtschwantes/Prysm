@@ -24,15 +24,11 @@ namespace Prysm
             SetConsoleMode( handle, mode | 0x4 );
 
             // TODO: Don't assume that they're using black and white
-            defaultFore = "\x1b[38;2;255;255;255m";
-            defaultBack = "\x1b[48;2;0;0;0m";
-            currentFore = defaultFore;
-            currentBack = defaultBack;
+            currentFore = "";
+            currentBack = "\x1b[0m";
         }
 
         // Static variables
-        private static string defaultFore {get;set;}
-        private static string defaultBack {get;set;}
         private static string currentFore {get;set;}
         private static string currentBack {get;set;}
 
@@ -40,10 +36,9 @@ namespace Prysm
         public static void Reset()
         {
             // Make sure to change the current "style" too
-            currentFore = defaultFore;
-            currentBack = defaultBack;
-            Console.Write(defaultFore);
-            Console.Write(defaultBack);
+            currentFore = ""; 
+            currentBack = "\x1b[0m"; 
+            Console.Write(currentBack);
         }
 
         // Private - Resets to current colors (affected by Style())
@@ -145,7 +140,7 @@ namespace Prysm
         
         // Color Getters (Public)
         // Takes red, green, and blue as integers
-        public static string RGB(int r = 0, int g = 0, int b = 0)
+        public static string RGB(int r, int g, int b)
         {
             return "\x1b[ ;2;" + r + ";" + g + ";" + b + "m";
         }
