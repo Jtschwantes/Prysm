@@ -9,7 +9,8 @@ namespace Prysm
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Initialize();
+            Console.WriteLine(Red.Replace(" ", "38") + "Hello" + "\x1b[0mHello!!!");
         }
     }
 }
