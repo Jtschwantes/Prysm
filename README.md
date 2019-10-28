@@ -141,3 +141,15 @@ AlternateCharacters("This sentance will switch between red and purple", colors, 
 Output:
 
 ![Example with AlternatingCharacters](/images/ACExample.png)
+
+#### Underscore
+
+There are some functions that behave similar to the `Pym.WriteLine`, `Pym.Write`, and `Paint` functions which underline text for you. You can both color and underline text at the same time. `Pym.WriteLineUnderscore` and `Pym.WriteUnderscore` are exactly the same as the `WriteLine` and `Write` functions written above, but they underline the text in addition to the color formatting. They use the same parameters. The `Underscore` function is also the same as the `Paint` function, which will return a underscored string that can be used within the `WriteLine` functions both in `Pym` and `Console`. The following is an example of underscore usage:
+
+```C#
+
+```
+
+Output:
+
+![Example with Underscore](/images/UExample.png)
