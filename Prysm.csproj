@@ -8,6 +8,8 @@
     <PackageTags>Color;Console;CLI;Colorful;Command;Line;Style</PackageTags>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Authors>Jake Schwantes</Authors>
+    <Language>C#</Language>
+    <Summary>Prysm is a CLI beautification tool that provides simple and easy manipulation of console colors. This tool formats escape characters, which provides 256 color support to most windows command lines.</Summary>
     <Description>Prysm is a CLI beutification tool that provides simple and easy manipulation of console colors. This tool formats escape characters, which provides 256 color support to most windows command lines.</Description>
   </PropertyGroup>
 
