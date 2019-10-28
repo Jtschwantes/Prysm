@@ -57,13 +57,16 @@ namespace Prysm
             Console.WriteLine();
 
             Gradient("Test number 7: Underline", Green, Yellow);
-            WriteLineUnderscore("No color, underline");
-            WriteUnderscore("With color, no newline, underline", YellowGreen);
-            WriteLine("Four Chang, no underline", Green);
+            // WriteLineUnderscore("No color, underline");
+            // WriteUnderscore("With color, no newline, underline", YellowGreen);
+            // WriteLine("Four Chang, no underline", Green);
 
-            var myString = Underscore("This was underscored peranantly");
-            WriteLine("Using Pym.WriteLine: " + myString, Blue);
+            var myString = Underscore("Underscore Blue", Blue);
+            WriteLine("Using Pym.WriteLine: " + myString, Red);
             Console.WriteLine("Using Console.WriteLine: " + myString);
+            WriteLineUnderscore("Example using WriteLineUnderscore()", Magenta);
+            WriteUnderscore("Example using ", Green);
+            WriteUnderscore("two WriteUnderscores", Yellow);
             Console.WriteLine();
 
             AlternateCharacters("Test Methods:", Rainbow, 2);

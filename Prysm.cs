@@ -143,9 +143,10 @@ namespace Prysm
             SoftReset();
         }
 
-        public static string Underscore(string str)
+        // Underscores a string permanantly, also uses color support
+        public static string Underscore(string str, string fore = "", string back = "")
         {
-            return "\x1b[4m" + str + "\x1b[24m";
+            return "\x1b[4m" + FormatToForeground(fore) + FormatToBackground(back) + str + currentFore + currentBack + "\x1b[24m";
         }
 
         // Paints a string permanantly, adds the color escape strings to the beginning and end of the string
