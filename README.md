@@ -5,7 +5,10 @@ This tool formats escape characters, which provides 256 color support to most wi
 
 ## Initialization
 
-First, download the package. (The package is in a "closed beta" state)
+First, download the package. You can download the package on nuget or you can add it to your project using the following command:
+```
+dotnet add package Prysm --version 0.1.0
+```
 
 When you have the package, add the following using statement to permit access to the methods:
 ```C#
@@ -21,7 +24,7 @@ You may specify default forground and background colors as the first and second 
 Prysm will use those defaults as values anytime `Pym.Reset()` is called. 
 The default forground and background colors are white and black.
 ```C#
-Spec.Initialize();
+Pym.Initialize();
 ```
 
 ## Usage
@@ -47,13 +50,13 @@ Output:
 
 #### Colored WriteLine
 
-You can also write using custom colors by using the `Spec.WriteLine()` command.
+You can also write using custom colors by using the `Pym.WriteLine()` command.
 It behaves just like `Console.WriteLine()`, except it takes an additional two parameters. 
-The first parameter is the string to print, the second is the color of the foreground text, and the third is the color of the background. `Spec.Write()` behaves similarly, except without the newline character. Example:
+The first parameter is the string to print, the second is the color of the foreground text, and the third is the color of the background. `Pym.Write()` behaves similarly, except without the newline character. Example:
 
 ```C#
 // ... Make sure to initialize Prysm!
-Console.WriteLine("This is an example using Spec.Write and WriteLine");
+Console.WriteLine("This is an example using Pym.Write and WriteLine");
 // WriteLine examples - including "using static Prysm.Colors"
 WriteLine("This will print using the color chosen (magenta)", Magenta);
 WriteLine("This will print using a foreground and background color!", Cyan, Grey);
@@ -147,7 +150,19 @@ Output:
 There are some functions that behave similar to the `Pym.WriteLine`, `Pym.Write`, and `Paint` functions which underline text for you. You can both color and underline text at the same time. `Pym.WriteLineUnderscore` and `Pym.WriteUnderscore` are exactly the same as the `WriteLine` and `Write` functions written above, but they underline the text in addition to the color formatting. They use the same parameters. The `Underscore` function is also the same as the `Paint` function, which will return a underscored string that can be used within the `WriteLine` functions both in `Pym` and `Console`. The following is an example of underscore usage:
 
 ```C#
-
+using static Prysm.Pym;
+using static Prysm.Colors;
+// ...
+// Save an underline string
+var myString = Underscore("Underscore Blue", Blue);
+// Use it in writes
+WriteLine("Using Pym.WriteLine: " + myString, Red);
+Console.WriteLine("Using Console.WriteLine: " + myString);
+// Without saving a string
+WriteLineUnderscore("Example using WriteLineUnderscore()", Magenta);
+WriteUnderscore("Example using ", Green);
+WriteUnderscore("two WriteUnderscores", Yellow);
+Console.WriteLine();
 ```
 
 Output:
