@@ -127,6 +127,28 @@ namespace Prysm
             SoftReset();
         }
 
+        // Underline //
+        // Writes underscore with color support and a newline
+        public static void WriteLineUnderscore(string str, string fore = "", string back = "")
+        {
+            Console.Write("\x1b[4m" + fore.Replace(" ", "38") + back.Replace(" ", "48") + str + "\x1b[24m");
+            Pym.SoftReset();
+            Console.WriteLine();
+        }
+
+        // Writes underscore with color support
+        public static void WriteUnderscore(string str, string fore = "", string back = "")
+        {
+            Console.Write("\x1b[4m" + fore.Replace(" ", "38") + back.Replace(" ", "48") + str + "\x1b[24m");
+            SoftReset();
+        }
+
+        // Underscores a string permanantly, also uses color support
+        public static string Underscore(string str, string fore = "", string back = "")
+        {
+            return "\x1b[4m" + FormatToForeground(fore) + FormatToBackground(back) + str + currentFore + currentBack + "\x1b[24m";
+        }
+
         // Paints a string permanantly, adds the color escape strings to the beginning and end of the string
         public static string Paint(string str, string fore = "", string back = "")
         {
