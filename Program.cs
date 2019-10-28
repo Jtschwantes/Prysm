@@ -56,10 +56,17 @@ namespace Prysm
             Console.WriteLine($"Written in console: {str1}, {str2}, {str3}");
             Console.WriteLine();
 
-            Gradient("Test number 7: AlternateCharacters", Green, Yellow);
-            AlternateCharacters("Alternate Characters 1", Rainbow, 2);
-            AlternateCharacters("Alternate Characters 2", Rainbow, 3);
+            Gradient("Test number 7: Underline", Green, Yellow);
+            WriteLineUnderscore("No color, underline");
+            WriteUnderscore("With color, no newline, underline", YellowGreen);
+            WriteLine("Four Chang, no underline", Green);
+
+            var myString = Underscore("This was underscored peranantly");
+            WriteLine("Using Pym.WriteLine: " + myString, Blue);
+            Console.WriteLine("Using Console.WriteLine: " + myString);
             Console.WriteLine();
+
+            AlternateCharacters("Test Methods:", Rainbow, 2);
         }
     }
 }
