@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <PackageId>Prysm</PackageId>
-    <Version>0.0.1</Version>
+    <Version>0.0.2</Version>
     <title>Prysm</title>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Authors>Jake Schwantes</Authors>
