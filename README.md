@@ -1,4 +1,4 @@
-# Prysm
+![Prysm](/images/CroppedBlackPrism)
 
 Prysm is a CLI beautification tool that provides simple and easy manipulation of console colors.
 This tool formats escape characters, which provides 256 color support to most windows command lines.
